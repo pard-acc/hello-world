@@ -1,0 +1,19 @@
+pipeline: 
+  master:
+    image: golang
+    commands:
+      - echo "frontend testing"
+      - echo "test2 => $TEST2"
+      - TODAY=$(date +"%d-%m-%Y")
+      - echo "$TODAY 建立測試 mastet" >> 'mastet.test.log'
+    when:
+      branch: master
+  rlease:
+    image: golang
+    commands:
+      - echo "frontend testing"
+      - echo "test1 => $TEST1"
+      - TODAY=$(date +"%d-%m-%Y")
+      - echo "$TODAY 建立測試 release" >> 'release.test.log'
+    when:
+      branch: release
